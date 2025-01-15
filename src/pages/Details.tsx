@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Office } from "../types/type";
 
 export default function Details() {
@@ -243,17 +243,18 @@ export default function Details() {
                         </div>
                         <hr className="border-[#F6F5FD]" />
                         <div className="flex flex-col gap-[14px]">
-                            <a
-                                href="booking.html"
-                                className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
-                            >
-                                <img
-                                    src="/assets/images/icons/slider-horizontal-white.svg"
-                                    className="w-6 h-6"
-                                    alt="icon"
-                                />
-                                <span>Book This Office</span>
-                            </a>
+                            <Link to={`/office/${slug}/book`}>
+                                <div
+                                    className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
+                                >
+                                    <img
+                                        src="/assets/images/icons/slider-horizontal-white.svg"
+                                        className="w-6 h-6"
+                                        alt="icon"
+                                    />
+                                    <span>Book This Office</span>
+                                </div>
+                            </Link>
                             <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
                                 <img
                                     src="/assets/images/icons/save-add.svg"
