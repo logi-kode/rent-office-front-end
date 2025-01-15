@@ -156,7 +156,7 @@ export default function CheckBooking() {
                             <div className="flex items-center gap-4">
                                 <div className="flex shrink-0 w-[140px] h-[100px] rounded-[20px] overflow-hidden">
                                     <img
-                                        src="/assets/images/thumbnails/thumbnail-details-4.png"
+                                        src={`${baseURL}/${bookingDetails.office.thumbnail}`}
                                         className="w-full h-full object-cover"
                                         alt="thumbnail"
                                     />
