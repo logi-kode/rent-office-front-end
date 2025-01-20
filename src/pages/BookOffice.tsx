@@ -5,6 +5,7 @@ import { Office } from "../types/type";
 import axios from "axios";
 import { z } from 'zod'
 import { bookingSchema } from "../types/validationBooking";
+import apiClient, { isAxiosError } from "../services/apiService";
 
 export default function BookOffice() {
     const { slug } = useParams<{ slug: string }>()
@@ -28,11 +29,7 @@ export default function BookOffice() {
 
     useEffect(() => {
         console.log("Fetching office data process...")
-        axios.get(`http://127.0.0.1:8000/api/office/${slug}`, {
-            headers: {
-                "X-API-KEY": "fhedgewgfdeefgeferefgerg"
-            }
-        })
+        axios.get(`/office/${slug}`)
         .then((response) => {
             console.log("Office data fetched successfully:", response.data.data)
 
@@ -54,7 +51,7 @@ export default function BookOffice() {
             setLoading(false)
         })
         .catch((error: unknown) => {
-            if(axios.isAxiosError(error)) {
+            if(isAxiosError(error)) {
                 console.log("Error fetching office data:", error.message)
                 setError(error.message)
             } else {
@@ -91,7 +88,7 @@ export default function BookOffice() {
         setIsLoading(true)
 
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/booking-transaction", {
+            const response = await apiClient.post("http://127.0.0.1:8000/api/booking-transaction", {
                 ...formData
             },
             {
