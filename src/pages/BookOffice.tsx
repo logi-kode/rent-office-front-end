@@ -55,7 +55,7 @@ export default function BookOffice() {
         })
         .catch((error: unknown) => {
             if(axios.isAxiosError(error)) {
-                console.error("Error fetching office data:", error.message)
+                console.log("Error fetching office data:", error.message)
                 setError(error.message)
             } else {
                 console.error("Unexpected error:", error)
@@ -127,7 +127,7 @@ export default function BookOffice() {
     }
 
     if(error){
-        return <p>Error laoding: {error}</p>
+        return <p>Error loading: {error}</p>
     }
 
     if(!office){

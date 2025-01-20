@@ -80,7 +80,7 @@ export default function CheckBooking() {
                 </h1>
                 <div className="absolute w-full h-full bg-[linear-gradient(180deg,_rgba(0,0,0,0)_0%,#000000_91.83%)] z-10" />
                 <img
-                    src="/images/thumbnails/thumbnail-details-5.png"
+                    src="/assets/images/backgrounds/banner.png"
                     className="absolute w-full h-full object-cover object-top"
                     alt=""
                 />
